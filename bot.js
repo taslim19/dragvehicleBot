@@ -1,13 +1,20 @@
-const { Telegraf } = require('telegraf')
 const request = require('request')
 
 const { default: axios } = require('axios')
 const axiosCookieJarSupport = require('axios-cookiejar-support').default
 const tough = require('tough-cookie')
 const qs = require('qs')
+require('dotenv').config();
+const { Telegraf } = require('telegraf');
+
+// Log the bot token for debugging
+console.log("Bot Token:", process.env.BOT_TOKEN);
+
+const bot = new Telegraf(process.env.BOT_TOKEN);
+
+// ... rest of your bot code
 const cheerio = require('cheerio')
 
-const bot = new Telegraf(process.env.BOT_TOKEN)
 
 class DOMCrawler {
   crawler = null
